@@ -1,0 +1,20 @@
+services:
+  my-rhasspy:
+    image: rhasspy/rhasspy:2.5.11
+    ports:
+      - 12101:12101
+    network_mode: "host"
+    volumes:
+      - ~/.config/rhasspy/profiles:/profiles
+      - /etc/localtime:/etc/localtime:ro
+    devices:
+      - /dev/snd:/dev/snd
+    command: --user-profiles /profiles --profile ru
+  mqtt-client:
+    build: ./app
+    container_name: mqtt-client
+    network_mode: "host"
+    restart: unless-stopped
+    depends_on:
+      - my-rhasspy
+    command: python /app/main.py

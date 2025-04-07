@@ -1,0 +1,28 @@
+image: python:3.9
+
+stages:
+  - lint
+  - secret_detection
+  - test
+
+before_script:
+  - pip install flake8 pytest truffleHog
+
+lint:
+  stage: lint
+  script:
+    - flake8 .
+
+secret_detection:
+  stage: secret_detection
+  script:
+    - trufflehog --json . > trufflehog_report.json || true
+    - cat trufflehog_report.json
+  artifacts:
+    paths:
+      - trufflehog_report.json
+
+test:
+  stage: test
+  script:
+    - pytest

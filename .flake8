@@ -1,0 +1,6 @@
+[flake8]
+max-line-length = 88
+ignore = E501, F401, F541
+exclude = .git, __pycache__, venv, .env, env, .mypy_cache, .pytest_cache, c4-architecture-model, profiles, images
+per-file-ignores = 
+    ut/*:E501

@@ -1,0 +1,8 @@
+# Ignore .structurizr
+.structurizr
+
+# Ignore images
+images
+
+# Ignore workspace.json
+workspace.json

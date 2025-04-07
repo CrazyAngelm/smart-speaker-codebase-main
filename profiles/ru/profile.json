@@ -1,0 +1,36 @@
+{
+    "dialogue": {
+        "system": "rhasspy"
+    },
+    "intent": {
+        "system": "fsticuffs"
+    },
+    "microphone": {
+        "system": "pyaudio"
+    },
+    "mqtt": {
+        "enabled": "true"
+    },
+    "sounds": {
+        "system": "aplay"
+    },
+    "speech_to_text": {
+        "system": "kaldi"
+    },
+    "text_to_speech": {
+        "espeak": {
+            "voice": "ru"
+        },
+        "larynx": {
+            "default_voice": "hajdurova",
+            "volume": "1"
+        },
+        "system": "larynx"
+    },
+    "wake": {
+        "porcupine": {
+            "keyword_path": "jarvis_linux.ppn"
+        },
+        "system": "porcupine"
+    }
+} 
